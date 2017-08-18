@@ -8,7 +8,7 @@ import { ActivatedRoute, Params} from '@angular/router';
 })
 export class RecipeEditComponent implements OnInit {
 	id: number;
-	edit = false;
+	editMode = false;
 
  constructor(private route: ActivatedRoute) { }
 
@@ -17,6 +17,8 @@ export class RecipeEditComponent implements OnInit {
   	.subscribe(
   		(params: Params)=> {
   			this.id = +params['id'];
+  			this.editMode = params['id'] != null;
+  			
   		}
      );
 
